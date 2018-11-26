@@ -28,7 +28,7 @@ function mario() {
 
   // WRITE YOUR EXERCISE 1 CODE HERE
   height = prompt("Enter a height between 1 and 23")
-  let = x
+  let = xx
   while (x>=1 && x<=23) {
   }
   // var p = document.getElementById("mario-easy-output");
@@ -43,7 +43,7 @@ function mario() {
  *
  * Write a function that prompts the user for a height, and prints a
  * Mario-style pyramid of that height.
- *
+ *      #  #
  *     ##  ##
  *    ###  ###
  *   ####  ####
@@ -194,6 +194,15 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+height = prompt("Enter a positive windspeed")
+
+// let trop = 39-73
+// let cat1 = 74-95
+// let cat2 = 96-110
+// let cat3 = 111-129
+// let cat4 = 130-156
+// let cat5= 157+
+
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY

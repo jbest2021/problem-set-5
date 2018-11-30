@@ -22,7 +22,7 @@
 
 function mario() {
 
-  ////////////// DO NOT MODIFY
+  ///////////// DO NOT MODIFY
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
@@ -169,10 +169,9 @@ function credit() {
   let even_sum=0;
   while (true){
     card=prompt("Enter your credit card number: ");
-    if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
-      break;
-    }
-  }
+  if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card)))
+  break;}
+
   for(let i=card.length-2;i>=0;i-=2) {
     let num=Number(card[i])*2;
     let strnum=num.toString();
@@ -244,7 +243,7 @@ function guess() {
   let attempts=0;
   let correct_answer = false;
   while (correct_answer==false) {
-    let guess=prompt('enter your guess')
+    let guess=prompt('enter your guess between 1 and 1000')
     if(guess>=1 && guess<=1000 && Number.isInteger(Number(guess))){
       console.log("1");
       if (number==guess){
@@ -275,13 +274,8 @@ function guess() {
  * Write a function that prompts the user to enter a windspeed, and prints
  * the hurricane category (if applicable) for that windspeed. We'll be
  * using the Saffir-Simpson scale, shown below in MPH.
- *   - Category 5: 157+
- *   - Category 4: 130-156
- *   - Category 3: 111-129
- *   - Catgeory 2: 96-110
- *   - Category 1: 74-95
- *   - Tropical Storm: 39-73
- *
+
+Let p = g
  * Windspeeds must be non-negative integers in the range [0, INF), and
  * users should be continuously re-prompted until they comply with this
  * restriction.
@@ -298,14 +292,48 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-height = prompt("Enter a positive windspeed")
+// height = prompt("Enter a windspeed")
+do {
+  windspeed = prompt("Please enter a windspeed that is and integer between 1 and infinity");
+  windspeed = Number(windspeed);
+} while (windspeed < 0);
 
-// let trop = 39-73
-// let cat1 = 74-95
-// let cat2 = 96-110
-// let cat3 = 111-129
-// let cat4 = 130-156
-// let cat5= 157+
+
+if (windspeed >= 0 && windspeed <= 38) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "The skies are calm...";
+}
+
+if (windspeed >= 39 && windspeed <= 73) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "Tropical Storm.";
+}
+
+if (windspeed >= 74 && windspeed <= 95) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "Category 1 Hurricane.";
+}
+
+if (windspeed >= 96 && windspeed <= 110) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "Category 2 Hurricane.";
+}
+
+if (windspeed >= 111 && windspeed <= 129) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "Category 3 Hurricane.";
+}
+
+if (windspeed >= 130 && windspeed <= 156) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "Category 4 Hurricane.";
+}
+
+if (windspeed > 157) {
+let div5 = document.getElementById('hurricane-output');
+div5.innerHTML= "Category 5 Hurricane.";
+}
+
 
 
   ///////////////////////////////// DO NOT MODIFY

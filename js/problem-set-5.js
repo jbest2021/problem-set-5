@@ -367,18 +367,36 @@ function gymnastics() {
   /////////////////// DO NOT MODIFY
 
   /*
-   * NOTE: The 'total' variable should be representative of the sum of all
+   * NOTE: The 'total' letiable should be representative of the sum of all
    *       six of the judges' scores.
    */
 
   /*
-   * NOTE: You need to add each score (valid or not) to the 'scores' variable.
+   * NOTE: You need to add each score (valid or not) to the 'scores' letiable.
    *       To do this, use the following syntax:
    *
-   *       scores.push(firstScore);   // your variable names for your scores
+   *       scores.push(firstScore);   // your letiable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
 
+  	let i=1;
+	while(i<=6){
+		let inputScore=Number(prompt("Enter your score"));
+		if (inputScore>=1 && inputScore<=10 && Number.isInteger(inputScore)){
+			scores.push(inputScore);
+		i++;
+		}
+	}
+	scores.sort(function(a,b){return a-b;})
+	let max=scores[5];
+	let min=scores[0];
+	let revisedScores=[];
+	for(let j=1;j<5;j++){
+		revisedScores.push(scores[j]);
+	}
+	let averageScore=((revisedScores[0]+revisedScores[1]+revisedScores[2]+revisedScores[3])/4).toFixed(2);
+	document.getElementById("gymnastics-output").innerHTML="Discarded: "+min+", "+max+"</br>Score: "+averageScore;
+  
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -414,7 +432,7 @@ function reportCard() {
   ///////////////////////// DO NOT MODIFY
 
   /*
-   * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' variables
+   * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' letiables
    *       should be representative of the sum of the test scores, quiz
    *       scores, and homework scores the user enters, respectively.
    */
@@ -426,11 +444,50 @@ function reportCard() {
   ///////////////////// DO NOT MODIFY
 
   /*
-   * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
+   * NOTE: The 'tests', 'quizzes', and 'homeworks' letiables should be
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
 
+  let testsInput = prompt("Enter test score");
+   if (testsInput == -1) {
+   	}
+
+   if (Number(testsInput) >= 0 && Number(testsInput <= 100)) {
+   		testTotal = Number(testsInput) + testTotal;
+   		tests++;
+   }
+
+   while (true) {
+     let quizInput=prompt("Enter quiz score");
+     if (quizInput == -1){
+     }
+
+     if (Number(quizInput) >= 0 && Number(quizInput) <= 100) {
+       quizTotal = Number(quizInput) + quizTotal;
+       quizzes++;
+   		}
+    }
+
+    while (true) {
+      let homeworkInput = prompt("Enter homework score");
+      if (homeworkInput == -1){
+   		}
+
+      if (Number(homeworkInput) >= 0 && Number(homeworkInput) <= 100) {
+        homeworkTotal = Number(homeworkInput) + homeworkTotal;
+   			homeworks++;
+   		}
+   	}
+
+   	let testAverage = (testTotal / tests).toFixed(2);
+   	let quizAverage = (quizTotal / quizzes).toFixed(2);
+   	let homeworksAverage = (homeworkTotal / homeworks).toFixed(2);
+   	grade = (.6 * testAverage + .3 * quizAverage + .1 * homeworksAverage).toFixed(2);
+
+   	document.getElementById("report-card-output").innerHTML="Tests: "+testAverage+"</br>Quizzes: "+quizAverage+"</br>Homework: "+homeworksAverage+"</br>Grade: "+grade;
+
+  
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
